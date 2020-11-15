@@ -2,15 +2,21 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp( MaterialApp(
-    home : NinjaCard()
+    home : Test()
   ) );
 }
 
 
-
-class NinjaCard extends StatelessWidget {
+class Test extends StatefulWidget {
   @override
-  
+  _TestState createState() => _TestState();
+}
+
+class _TestState extends State<Test> {
+  @override
+
+  int lvl = 0;
+
   Widget build(BuildContext context) {
     return Scaffold(
        backgroundColor: Colors.cyan[50],
@@ -51,7 +57,7 @@ class NinjaCard extends StatelessWidget {
                letterSpacing: 2
              )),
              SizedBox(height: 10,),
-              Text('7',
+              Text('$lvl',
              style: TextStyle(
                color: Colors.black,
                letterSpacing: 2,
@@ -100,6 +106,22 @@ class NinjaCard extends StatelessWidget {
                       color : Colors.cyan[100]
                     ),
                   ),
+              ],
+            ),
+            Divider(height: 60, color: Colors.grey,),
+            Row(
+              children: [
+                Expanded(
+                  flex : 1,
+                  child:(
+                  FloatingActionButton(
+                    onPressed: () => {
+                    setState(()=>{
+                      lvl++
+                    })
+                    }
+                  ,child: Icon(Icons.add),) 
+                ))
               ],
             )
            ],
